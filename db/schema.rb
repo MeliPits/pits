@@ -10,10 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_05_223709) do
+ActiveRecord::Schema.define(version: 2018_10_06_140544) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "aseguradoras", force: :cascade do |t|
+    t.string "nombre"
+  end
 
   create_table "autos", force: :cascade do |t|
     t.string "Vin"
@@ -24,6 +28,8 @@ ActiveRecord::Schema.define(version: 2018_10_05_223709) do
     t.string "Color"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "siniestro_id"
+    t.index ["siniestro_id"], name: "index_autos_on_siniestro_id"
   end
 
   create_table "clientes", force: :cascade do |t|
@@ -33,6 +39,23 @@ ActiveRecord::Schema.define(version: 2018_10_05_223709) do
     t.string "Correo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "siniestros", force: :cascade do |t|
+    t.string "noOrden"
+    t.string "noSiniestro"
+    t.integer "poliza"
+    t.integer "tipoEntrada"
+    t.integer "status"
+    t.date "fechaEntrada"
+    t.date "fechaSalida"
+    t.bigint "aseguradora_id"
+    t.bigint "cliente_id"
+    t.bigint "usuario_id"
+    t.index ["aseguradora_id"], name: "index_siniestros_on_aseguradora_id"
+    t.index ["cliente_id"], name: "index_siniestros_on_cliente_id"
+    t.index ["noOrden"], name: "index_siniestros_on_noOrden", unique: true
+    t.index ["usuario_id"], name: "index_siniestros_on_usuario_id"
   end
 
   create_table "usuarios", force: :cascade do |t|
@@ -61,4 +84,8 @@ ActiveRecord::Schema.define(version: 2018_10_05_223709) do
     t.index ["unlock_token"], name: "index_usuarios_on_unlock_token", unique: true
   end
 
+  add_foreign_key "autos", "siniestros"
+  add_foreign_key "siniestros", "aseguradoras"
+  add_foreign_key "siniestros", "clientes"
+  add_foreign_key "siniestros", "usuarios"
 end

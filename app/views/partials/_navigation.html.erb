@@ -1,3 +1,4 @@
+<% if usuario_signed_in? %>
 <ul id="dropdown1" class="dropdown-content">
   <li><a href="#!">Cambiar contraseña</a></li>
   <li><%= link_to "Cerrar Sesión", destroy_usuario_session_path, method: :delete %></li>
@@ -6,10 +7,17 @@
   <li><a href="#!">Cambiar contraseña</a></li>
   <li><%= link_to "Cerrar Sesión", destroy_usuario_session_path, method: :delete %></li>
 </ul>
+<% if @c_user.asesor? %>
 <ul id="dropdown3" class="dropdown-content">
-  <li><%= link_to "Registrar siniestro", destroy_usuario_session_path, method: :delete %></li>
+  <li><%= link_to "Registrar siniestro", new_siniestro_path%></li>
   <li><a href="#!">Lista siniestros</a></li>
 </ul>
+<ul id="dropdown4" class="dropdown-content">
+  <li><%= link_to "Registrar siniestro", new_siniestro_path %></li>
+  <li><a href="#!">Lista siniestros</a></li>
+</ul>
+<% end %>
+<% end %>
 
 <nav>
   <div class="nav-wrapper">
@@ -17,7 +25,9 @@
     <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
     <ul class="right hide-on-med-and-down">
       <% if usuario_signed_in? %>
+        <% if @c_user.asesor? %>
           <li><a class="dropdown-trigger" href="#!" data-target="dropdown3">Sinestros<i class="material-icons right">arrow_drop_down</i></a></li>
+        <% end %>
           <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Cuenta<i class="material-icons right">arrow_drop_down</i></a></li>
       <% else %>
         <li><%= link_to "Iniciar sesión", new_usuario_session_path %></li>
@@ -28,6 +38,9 @@
 
 <ul class="sidenav" id="mobile-demo">
   <% if usuario_signed_in? %>
+      <% if @c_user.asesor? %>
+        <li><a class="dropdown-trigger" href="#!" data-target="dropdown4">Sinestros<i class="material-icons right">arrow_drop_down</i></a></li>
+      <% end %>
     <li><a class="dropdown-trigger" href="#!" data-target="dropdown2">Cuenta<i class="material-icons right">arrow_drop_down</i></a></li>
   <% else %>
     <li><%= link_to "Iniciar sesión", new_usuario_session_path %></li>

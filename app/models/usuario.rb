@@ -5,6 +5,8 @@ class Usuario < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :lockable, :trackable
 
+  has_many :siniestro
+
   validates :email, email: true, uniqueness: true, length: { maximum: 50}
   validates :nombreUsuario, presence: true, uniqueness: true, length: { minimum: 3, maximum: 30} 
   validates :nombre, presence: true, length: { minimum: 7, maximum: 50}

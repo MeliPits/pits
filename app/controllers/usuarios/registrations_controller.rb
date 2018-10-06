@@ -42,10 +42,6 @@ class Usuarios::RegistrationsController < Devise::RegistrationsController
 
   private
 
-  def authenticate_admin!
-    redirect_to root_path, alert: "No cuentas con los permisos necesarios para realizar esta operación" unless @c_user.admin? || @c_user.secretary?
-  end
-
   def create_usuario_params
     params.require(:usuario).permit(:email, :password, :password_confirmation, :tipo, :nombreUsuario, :nombre, :celular)
   end
