@@ -47,6 +47,7 @@ es:
         one: "no tiene la longitud correcta (1 carácter exactos)"
         other: "no tiene la longitud correcta (%{count} caracteres exactos)"
       other_than: debe ser distinto de %{count}
+      not_saved: "No se pudo actualizar el %{resource}"
     template:
       body: 'Se encontraron problemas con los siguientes campos:'
       header:
@@ -228,3 +229,6 @@ es:
       usuario:
         signed_in: "Sesión iniciada"
         signed_out: "Se ha cerrado la sesión correctamente"
+    registrations:
+      usuario:
+        updated: "Se actualizo correctamente"

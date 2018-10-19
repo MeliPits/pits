@@ -10,13 +10,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_06_140544) do
+ActiveRecord::Schema.define(version: 2018_10_13_052204) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "active_storage_attachments", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "record_type", null: false
+    t.bigint "record_id", null: false
+    t.bigint "blob_id", null: false
+    t.datetime "created_at", null: false
+    t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
+    t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
+  end
+
+  create_table "active_storage_blobs", force: :cascade do |t|
+    t.string "key", null: false
+    t.string "filename", null: false
+    t.string "content_type"
+    t.text "metadata"
+    t.bigint "byte_size", null: false
+    t.string "checksum", null: false
+    t.datetime "created_at", null: false
+    t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
+
   create_table "aseguradoras", force: :cascade do |t|
     t.string "nombre"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "autos", force: :cascade do |t|
@@ -41,6 +64,29 @@ ActiveRecord::Schema.define(version: 2018_10_06_140544) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "fotos_autos", force: :cascade do |t|
+    t.bigint "auto_id"
+    t.integer "tipo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["auto_id"], name: "index_fotos_autos_on_auto_id"
+  end
+
+  create_table "inventario_autos", force: :cascade do |t|
+    t.bigint "auto_id"
+    t.bigint "inventario_id"
+    t.index ["auto_id"], name: "index_inventario_autos_on_auto_id"
+    t.index ["inventario_id"], name: "index_inventario_autos_on_inventario_id"
+  end
+
+  create_table "inventarios", force: :cascade do |t|
+    t.string "nombre"
+    t.integer "categoria"
+    t.boolean "activo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "siniestros", force: :cascade do |t|
     t.string "noOrden"
     t.string "noSiniestro"
@@ -52,10 +98,18 @@ ActiveRecord::Schema.define(version: 2018_10_06_140544) do
     t.bigint "aseguradora_id"
     t.bigint "cliente_id"
     t.bigint "usuario_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["aseguradora_id"], name: "index_siniestros_on_aseguradora_id"
     t.index ["cliente_id"], name: "index_siniestros_on_cliente_id"
     t.index ["noOrden"], name: "index_siniestros_on_noOrden", unique: true
     t.index ["usuario_id"], name: "index_siniestros_on_usuario_id"
+  end
+
+  create_table "tokens", force: :cascade do |t|
+    t.string "token"
+    t.bigint "usuario_id"
+    t.index ["usuario_id"], name: "index_tokens_on_usuario_id", unique: true
   end
 
   create_table "usuarios", force: :cascade do |t|
@@ -85,7 +139,11 @@ ActiveRecord::Schema.define(version: 2018_10_06_140544) do
   end
 
   add_foreign_key "autos", "siniestros"
+  add_foreign_key "fotos_autos", "autos"
+  add_foreign_key "inventario_autos", "autos"
+  add_foreign_key "inventario_autos", "inventarios"
   add_foreign_key "siniestros", "aseguradoras"
   add_foreign_key "siniestros", "clientes"
   add_foreign_key "siniestros", "usuarios"
+  add_foreign_key "tokens", "usuarios"
 end

@@ -6,6 +6,7 @@ class Usuario < ApplicationRecord
          :lockable, :trackable
 
   has_many :siniestro
+  has_one :token
 
   validates :email, email: true, uniqueness: true, length: { maximum: 50}
   validates :nombreUsuario, presence: true, uniqueness: true, length: { minimum: 3, maximum: 30} 

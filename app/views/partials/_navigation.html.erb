@@ -1,20 +1,20 @@
 <% if usuario_signed_in? %>
 <ul id="dropdown1" class="dropdown-content">
-  <li><a href="#!">Cambiar contraseña</a></li>
+  <li><%= link_to "Editar cuenta", edit_usuario_registration_path %></li>
   <li><%= link_to "Cerrar Sesión", destroy_usuario_session_path, method: :delete %></li>
 </ul>
 <ul id="dropdown2" class="dropdown-content">
-  <li><a href="#!">Cambiar contraseña</a></li>
+  <li><%= link_to "Editar cuenta", edit_usuario_registration_path %></li>
   <li><%= link_to "Cerrar Sesión", destroy_usuario_session_path, method: :delete %></li>
 </ul>
 <% if @c_user.asesor? %>
 <ul id="dropdown3" class="dropdown-content">
-  <li><%= link_to "Registrar siniestro", new_siniestro_path%></li>
-  <li><a href="#!">Lista siniestros</a></li>
+  <li><%= link_to "Registrar siniestro", new_siniestro_path %></li>
+  <li><%= link_to "Lista siniestro", siniestros_path%></li></li>
 </ul>
 <ul id="dropdown4" class="dropdown-content">
   <li><%= link_to "Registrar siniestro", new_siniestro_path %></li>
-  <li><a href="#!">Lista siniestros</a></li>
+  <li><%= link_to "Lista siniestro", siniestros_path%></li></li>
 </ul>
 <% end %>
 <% end %>

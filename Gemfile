@@ -24,6 +24,8 @@ gem 'turbolinks', '~> 5'
 gem 'execjs'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+# Use jquery DataTables
+gem 'jquery-datatables-rails', '~> 3.4.0'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 # Build Devise for authentication
@@ -37,13 +39,24 @@ gem 'material_icons'
 # gem 'bcrypt', '~> 3.1.7'
 
 # Use ActiveStorage variant
-# gem 'mini_magick', '~> 4.8'
+gem 'mini_magick', '~> 4.8'
+# gem 'image_processing', '~> 1.2'
+
+# Use amazon as storage 
+# gem "aws-sdk-s3", require: false
+
+# Use Google Cloud Storage
+gem "google-cloud-storage", "~> 1.11", require: false
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
+
+# Use active Storage for file upload
+gem 'activestorage', '~> 5.2.1'
+gem 'activestorage-validator'
 
 # Validations
 gem 'phony_rails'

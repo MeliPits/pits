@@ -40,9 +40,25 @@ class Usuarios::RegistrationsController < Devise::RegistrationsController
     super
   end
 
+  protected
+
+  def update_resource(resource, parameters)
+    if params[:usuario][:password].blank? && params[:usuario][:password_confirmation].blank?
+      resource.update_without_password(update_usuario_params)
+    else
+      resource.update_with_password(update_usuario_params)
+    end
+  end
+
+  
+
   private
 
   def create_usuario_params
     params.require(:usuario).permit(:email, :password, :password_confirmation, :tipo, :nombreUsuario, :nombre, :celular)
+  end
+
+  def update_usuario_params
+    params.require(:usuario).permit(:nombre, :celular, :password, :password_confirmation, :current_password)
   end
 end

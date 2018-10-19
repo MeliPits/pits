@@ -8,6 +8,8 @@ class SiniestrosController < ApplicationController
 	before_action :set_asesores, only: [:new, :edit]
 	before_action :set_aseguradora, only: [:create, :update]
 	before_action :set_asesor, only: [:create, :update]
+	before_action :set_inventario, only: [:show]
+	before_action :set_imagenes, only: [:show]
 
 	def index
 		@siniestros = Siniestro.all()
@@ -28,7 +30,7 @@ class SiniestrosController < ApplicationController
 		@siniestro.build_auto(auto_params)
 		@siniestro.cliente = @cliente
 		if @siniestro.save
-			redirect_to siniestros_path, notice: "Se ha registrado correctament el siniestro"
+			redirect_to @siniestro, notice: "Se ha registrado correctamente el siniestro" 
 		else
 			set_aseguradoras
 			set_asesores
@@ -48,7 +50,7 @@ class SiniestrosController < ApplicationController
 	end
 
 	def siniestro_params
-		params.require(:siniestro).permit(:noSiniestronoSiniestro, :poliza, :tipoEntrada, :fechaEntrada, :fechaSalida)
+		params.require(:siniestro).permit(:noSiniestro, :poliza, :tipoEntrada, :fechaEntrada, :fechaSalida)
 	end
 
 	def set_aseguradora
@@ -65,6 +67,9 @@ class SiniestrosController < ApplicationController
 
 	def set_siniestro
 		@siniestro = Siniestro.find(params[:id])
+		if @siniestro.nil?
+			redirect_to :index, alert: "No existe el siniestro"
+		end
 	end
 
 	def set_cliente
@@ -87,6 +92,24 @@ class SiniestrosController < ApplicationController
 
 	def set_asesores
 		@asesores = Usuario.all.where("tipo = 3")
+	end
+
+	def set_inventario
+		@inventarioExteriores = Inventario.where(activo: true, categoria: 1).order(:id)
+		@inventarioInteriores = Inventario.where(activo: true, categoria: 2).order(:id)
+		@inventarioMecanica = Inventario.where(activo: true, categoria: 3).order(:id)
+	end
+
+	def set_imagenes
+		puts 1
+		unless @siniestro.nil?
+			puts 2
+			auto = @siniestro.auto
+			unless auto.nil?
+				puts 3
+				@fotos = auto.fotos_auto
+			end
+		end
 	end
 
 end

@@ -4,6 +4,9 @@ class ApplicationController < ActionController::Base
 	def login?
     	if usuario_signed_in?
       		@c_user = current_usuario
+      		if @c_user.token.nil?
+      			@c_user.build_token.save
+      		end
     	end
 	end
 
@@ -21,5 +24,15 @@ class ApplicationController < ActionController::Base
 
 	def authenticate_asesor!
 		redirect_to root_path, alert: "No cuentas con los permisos necesarios para realizar esta operación" unless @c_user.asesor?
+	end
+
+	def error!(message,status)
+	    @errors << message
+	    response.status = status
+	    render "api/v1/errors"
+	end
+
+	def set_errors
+		@errors = []
 	end
 end

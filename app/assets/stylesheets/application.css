@@ -12,5 +12,6 @@
  *
  *= require_self
  *= require material_icons
+ *= require dataTables/jquery.dataTables
  *= require_tree .
  */

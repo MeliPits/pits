@@ -11,6 +11,8 @@ class CreateSiniestro < ActiveRecord::Migration[5.2]
       t.references :aseguradora, foreign_key: true
       t.references :cliente, foreign_key: true
       t.references :usuario, foreign_key: true
+
+      t.timestamps
     end
     add_index :siniestros, :noOrden, unique: true
   end
