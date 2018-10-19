@@ -15,7 +15,7 @@ local:
 #   bucket: <%= ENV['BUCKETEER_BUCKET_NAME'] %>
 
 # Remember not to checkin your GCS keyfile to a repository
- google:
+google:
   service: GCS
   credentials:
     type: "service_account",
