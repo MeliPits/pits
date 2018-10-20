@@ -17,7 +17,7 @@ $(document).ready(function(){
 	    	contentType: false,
     		processData: false,
 	    	success: function(response){
-	    		console.log(response)
+	    		$("#f1_img").attr('src', response.data.imageURL);
 	    	},
 			error: function(jqXHR, textStatus, errorThrown) {
 				console.log(jqXHR);
@@ -45,7 +45,7 @@ $(document).ready(function(){
 	    	contentType: false,
     		processData: false,
 	    	success: function(response){
-	    		console.log(response)
+	    		$("#f2_img").attr('src', response.data.imageURL);
 	    	},
 			error: function(jqXHR, textStatus, errorThrown) {
 				console.log(jqXHR);
@@ -73,7 +73,7 @@ $(document).ready(function(){
 	    	contentType: false,
     		processData: false,
 	    	success: function(response){
-	    		console.log(response)
+	    		$("#f3_img").attr('src', response.data.imageURL);
 	    	},
 			error: function(jqXHR, textStatus, errorThrown) {
 				console.log(jqXHR);
@@ -101,7 +101,7 @@ $(document).ready(function(){
 	    	contentType: false,
     		processData: false,
 	    	success: function(response){
-	    		console.log(response)
+	    		$("#f4_img").attr('src', response.data.imageURL);
 	    	},
 			error: function(jqXHR, textStatus, errorThrown) {
 				console.log(jqXHR);
@@ -129,7 +129,7 @@ $(document).ready(function(){
 	    	contentType: false,
     		processData: false,
 	    	success: function(response){
-	    		console.log(response)
+	    		$("#f5_img").attr('src', response.data.imageURL);
 	    	},
 			error: function(jqXHR, textStatus, errorThrown) {
 				console.log(jqXHR);
@@ -157,7 +157,7 @@ $(document).ready(function(){
 	    	contentType: false,
     		processData: false,
 	    	success: function(response){
-	    		console.log(response)
+	    		$("#f6_img").attr('src', response.data.imageURL);
 	    	},
 			error: function(jqXHR, textStatus, errorThrown) {
 				console.log(jqXHR);
@@ -185,7 +185,7 @@ $(document).ready(function(){
 	    	contentType: false,
     		processData: false,
 	    	success: function(response){
-	    		console.log(response)
+	    		$("#f7_img").attr('src', response.data.imageURL);
 	    	},
 			error: function(jqXHR, textStatus, errorThrown) {
 				console.log(jqXHR);
@@ -213,7 +213,7 @@ $(document).ready(function(){
 	    	contentType: false,
     		processData: false,
 	    	success: function(response){
-	    		console.log(response)
+	    		$("#f8_img").attr('src', response.data.imageURL);
 	    	},
 			error: function(jqXHR, textStatus, errorThrown) {
 				console.log(jqXHR);
@@ -241,7 +241,7 @@ $(document).ready(function(){
 	    	contentType: false,
     		processData: false,
 	    	success: function(response){
-	    		console.log(response)
+	    		$("#f9_img").attr('src', response.data.imageURL);
 	    	},
 			error: function(jqXHR, textStatus, errorThrown) {
 				console.log(jqXHR);
@@ -269,7 +269,7 @@ $(document).ready(function(){
 	    	contentType: false,
     		processData: false,
 	    	success: function(response){
-	    		console.log(response)
+	    		$("#f10_img").attr('src', response.data.imageURL);
 	    	},
 			error: function(jqXHR, textStatus, errorThrown) {
 				console.log(jqXHR);
@@ -297,7 +297,7 @@ $(document).ready(function(){
 	    	contentType: false,
     		processData: false,
 	    	success: function(response){
-	    		console.log(response)
+	    		$("#f11_img").attr('src', response.data.imageURL);
 	    	},
 			error: function(jqXHR, textStatus, errorThrown) {
 				console.log(jqXHR);
@@ -325,7 +325,7 @@ $(document).ready(function(){
 	    	contentType: false,
     		processData: false,
 	    	success: function(response){
-	    		console.log(response)
+	    		$("#f12_img").attr('src', response.data.imageURL);
 	    	},
 			error: function(jqXHR, textStatus, errorThrown) {
 				console.log(jqXHR);
@@ -353,7 +353,7 @@ $(document).ready(function(){
 	    	contentType: false,
     		processData: false,
 	    	success: function(response){
-	    		console.log(response)
+	    		$("#f13_img").attr('src', response.data.imageURL);
 	    	},
 			error: function(jqXHR, textStatus, errorThrown) {
 				console.log(jqXHR);
@@ -381,7 +381,7 @@ $(document).ready(function(){
 	    	contentType: false,
     		processData: false,
 	    	success: function(response){
-	    		console.log(response)
+	    		$("#f14_img").attr('src', response.data.imageURL);
 	    	},
 			error: function(jqXHR, textStatus, errorThrown) {
 				console.log(jqXHR);
@@ -409,7 +409,7 @@ $(document).ready(function(){
 	    	contentType: false,
     		processData: false,
 	    	success: function(response){
-	    		console.log(response)
+	    		$("#f15_img").attr('src', response.data.imageURL);
 	    	},
 			error: function(jqXHR, textStatus, errorThrown) {
 				console.log(jqXHR);
@@ -437,7 +437,7 @@ $(document).ready(function(){
 	    	contentType: false,
     		processData: false,
 	    	success: function(response){
-	    		console.log(response)
+	    		$("#f16_img").attr('src', response.data.imageURL);
 	    	},
 			error: function(jqXHR, textStatus, errorThrown) {
 				console.log(jqXHR);
@@ -465,7 +465,7 @@ $(document).ready(function(){
 	    	contentType: false,
     		processData: false,
 	    	success: function(response){
-	    		console.log(response)
+	    		$("#f17_img").attr('src', response.data.imageURL);
 	    	},
 			error: function(jqXHR, textStatus, errorThrown) {
 				console.log(jqXHR);
@@ -493,7 +493,7 @@ $(document).ready(function(){
 	    	contentType: false,
     		processData: false,
 	    	success: function(response){
-	    		console.log(response)
+	    		$("#f18_img").attr('src', response.data.imageURL);
 	    	},
 			error: function(jqXHR, textStatus, errorThrown) {
 				console.log(jqXHR);
@@ -521,7 +521,7 @@ $(document).ready(function(){
 	    	contentType: false,
     		processData: false,
 	    	success: function(response){
-	    		console.log(response)
+	    		$("#f19_img").attr('src', response.data.imageURL);
 	    	},
 			error: function(jqXHR, textStatus, errorThrown) {
 				console.log(jqXHR);
@@ -549,7 +549,7 @@ $(document).ready(function(){
 	    	contentType: false,
     		processData: false,
 	    	success: function(response){
-	    		console.log(response)
+	    		$("#f20_img").attr('src', response.data.imageURL);
 	    	},
 			error: function(jqXHR, textStatus, errorThrown) {
 				console.log(jqXHR);
@@ -577,7 +577,7 @@ $(document).ready(function(){
 	    	contentType: false,
     		processData: false,
 	    	success: function(response){
-	    		console.log(response)
+	    		$("#f21_img").attr('src', response.data.imageURL);
 	    	},
 			error: function(jqXHR, textStatus, errorThrown) {
 				console.log(jqXHR);
@@ -605,7 +605,7 @@ $(document).ready(function(){
 	    	contentType: false,
     		processData: false,
 	    	success: function(response){
-	    		console.log(response)
+	    		$("#f22_img").attr('src', response.data.imageURL);
 	    	},
 			error: function(jqXHR, textStatus, errorThrown) {
 				console.log(jqXHR);
@@ -633,7 +633,7 @@ $(document).ready(function(){
 	    	contentType: false,
     		processData: false,
 	    	success: function(response){
-	    		console.log(response)
+	    		$("#f23_img").attr('src', response.data.imageURL);
 	    	},
 			error: function(jqXHR, textStatus, errorThrown) {
 				console.log(jqXHR);
@@ -661,7 +661,7 @@ $(document).ready(function(){
 	    	contentType: false,
     		processData: false,
 	    	success: function(response){
-	    		console.log(response)
+	    		$("#f24_img").attr('src', response.data.imageURL);
 	    	},
 			error: function(jqXHR, textStatus, errorThrown) {
 				console.log(jqXHR);
@@ -689,7 +689,7 @@ $(document).ready(function(){
 	    	contentType: false,
     		processData: false,
 	    	success: function(response){
-	    		console.log(response)
+	    		$("#f25_img").attr('src', response.data.imageURL);
 	    	},
 			error: function(jqXHR, textStatus, errorThrown) {
 				console.log(jqXHR);
@@ -717,7 +717,7 @@ $(document).ready(function(){
 	    	contentType: false,
     		processData: false,
 	    	success: function(response){
-	    		console.log(response)
+	    		$("#f26_img").attr('src', response.data.imageURL);
 	    	},
 			error: function(jqXHR, textStatus, errorThrown) {
 				console.log(jqXHR);
@@ -725,6 +725,59 @@ $(document).ready(function(){
 				console.log(errorThrown);
 			}
 	  	});
-	  });
+	});
+
+	$("#inventGuardar").on("click", function(){
+		var inventarios = [];
+		$("input:checkbox:checked").each(function() { 
+			inventarios.push($(this).val()); 
+		});
+		$.ajax({
+			url: $("#urlInventarios").val(),
+			method: 'POST',
+			data: {
+				inventarios: inventarios,
+				token: $("#token").val(),
+				usuario: $("#usuario").val(),
+				siniestro: $("#siniestro").val()
+			},
+			success: function(response){
+				console.log(response);
+			},
+			error: function (jqXHR, textStatus, errorThrown) {
+				console.log(jqXHR);
+				console.log(textStatus);
+				console.log(errorThrown);
+			}
+		});
+	});
+
+	$("#extrasGuardar").on("click", function(){
+
+		$.ajax({
+			url: $("#urlExtras").val(),
+			method: 'POST',
+			data: {
+				token: $("#token").val(),
+				usuario: $("#usuario").val(),
+				siniestro: $("#siniestro").val(),
+				kilometraje: $("#kilometraje").val(),
+				bateria: $("#bateria").val(),
+				num_tapetes: $("#num_tapetes").val(),
+				gasolina_litros: $("#gasolina_litros").val(),
+				comentarios: $("#comentarios").val(),
+				descr_gral: $("#descr_gral").val()
+			},
+			success: function(response){
+				console.log(response);
+			},
+			error: function (jqXHR, textStatus, errorThrown) {
+				console.log(jqXHR);
+				console.log(textStatus);
+				console.log(errorThrown);
+			}
+		});
+	});
+
 });
 

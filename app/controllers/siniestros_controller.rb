@@ -98,6 +98,8 @@ class SiniestrosController < ApplicationController
 		@inventarioExteriores = Inventario.where(activo: true, categoria: 1).order(:id)
 		@inventarioInteriores = Inventario.where(activo: true, categoria: 2).order(:id)
 		@inventarioMecanica = Inventario.where(activo: true, categoria: 3).order(:id)
+		@inventarios = @siniestro.auto.inventario_auto
+		@extra = @siniestro.auto.extra
 	end
 
 	def set_imagenes

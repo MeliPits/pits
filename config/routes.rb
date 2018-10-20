@@ -23,6 +23,8 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: "json" } do
       namespace :v1 do
         resources :fotos_autos, controller: "fotos", only: [:create]
+        post '/inventarios' => 'inventarios#create', only: [:create]
+        resources :extras, controller: "extras", only: [:create]
       end
   end
 

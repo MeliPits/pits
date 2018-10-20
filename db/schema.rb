@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_13_052204) do
+ActiveRecord::Schema.define(version: 2018_10_19_183819) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -62,6 +62,19 @@ ActiveRecord::Schema.define(version: 2018_10_13_052204) do
     t.string "Correo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "extras", force: :cascade do |t|
+    t.bigint "auto_id"
+    t.integer "kilometraje"
+    t.string "bateria"
+    t.integer "num_tapetes"
+    t.string "tipo_tapete"
+    t.integer "gasolina_litros"
+    t.integer "gasolina_medida"
+    t.text "comentarios"
+    t.text "descr_gral"
+    t.index ["auto_id"], name: "index_extras_on_auto_id"
   end
 
   create_table "fotos_autos", force: :cascade do |t|
@@ -139,6 +152,7 @@ ActiveRecord::Schema.define(version: 2018_10_13_052204) do
   end
 
   add_foreign_key "autos", "siniestros"
+  add_foreign_key "extras", "autos"
   add_foreign_key "fotos_autos", "autos"
   add_foreign_key "inventario_autos", "autos"
   add_foreign_key "inventario_autos", "inventarios"

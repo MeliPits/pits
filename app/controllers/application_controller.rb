@@ -35,4 +35,34 @@ class ApplicationController < ActionController::Base
 	def set_errors
 		@errors = []
 	end
+
+	def validate_token_user
+		if(params.has_key?(:usuario) && params.has_key?(:token))
+			@c_user = Usuario.find(params[:usuario])
+			if @c_user.nil? || @c_user.token.nil?
+				error!("No se ha iniciado sesión", :unauthorized)
+				return
+			end
+			unless @c_user.token.token == params[:token]
+				error!("No se ha iniciado sesión", :unauthorized)
+				return
+			end
+		else
+			error!("No se ha iniciado sesión", :unauthorized)
+			return
+		end
+	end
+
+	def set_token_siniestro
+		if(params.has_key?(:siniestro))
+			@siniestro = Siniestro.find(params[:siniestro])
+			if @siniestro.nil? || @siniestro.auto.nil?
+				error!("Envia un siniestro valido", :not_found)
+				return
+			end
+		else
+			error!("Envia un siniestro valido", :not_found)
+			return
+		end
+	end
 end
